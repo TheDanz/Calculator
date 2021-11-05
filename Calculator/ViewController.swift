@@ -2,20 +2,11 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var labelNumber: UILabel!
-    var currentNumber: Double = 0
-    var tempNumber: Double = 0
-    var currentOperation: Character = "n"
-    
+    var isLastNumberSymbol : Bool = true
+    var isNumberDisplayed : Bool = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    func updateLabel() {
-        if isNumberDouble(currentNumber) {
-            labelNumber.text = "\(currentNumber)"
-        } else {
-            labelNumber.text = "\(Int(currentNumber))"
-        }
     }
     
     func isNumberDouble(_ number: Double) -> Bool {
@@ -26,16 +17,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func ClickAC(_ sender: Any) {
-        currentNumber = 0
         labelNumber.text = "0"
-        currentOperation = "n"
+        isLastNumberSymbol = true
+        isNumberDisplayed = true
     }
     
     @IBAction func Click0(_ sender: Any) {
         if labelNumber.text != "0" {
             labelNumber.text! += "0"
         }
-        currentNumber = Double(labelNumber.text!)!
+        isLastNumberSymbol = true
     }
     
     @IBAction func Click1(_ sender: Any) {
@@ -44,7 +35,7 @@ class ViewController: UIViewController {
         } else {
             labelNumber.text = "1"
         }
-        currentNumber = Double(labelNumber.text!)!
+        isLastNumberSymbol = true
     }
     
     @IBAction func Click2(_ sender: Any) {
@@ -53,7 +44,7 @@ class ViewController: UIViewController {
         } else {
             labelNumber.text = "2"
         }
-        currentNumber = Double(labelNumber.text!)!
+        isLastNumberSymbol = true
     }
     
     @IBAction func Click3(_ sender: Any) {
@@ -62,7 +53,7 @@ class ViewController: UIViewController {
         } else {
             labelNumber.text = "3"
         }
-        currentNumber = Double(labelNumber.text!)!
+        isLastNumberSymbol = true
     }
     
     @IBAction func Click4(_ sender: Any) {
@@ -71,7 +62,7 @@ class ViewController: UIViewController {
         } else {
             labelNumber.text = "4"
         }
-        currentNumber = Double(labelNumber.text!)!
+        isLastNumberSymbol = true
     }
     
     @IBAction func Click5(_ sender: Any) {
@@ -80,7 +71,7 @@ class ViewController: UIViewController {
         } else {
             labelNumber.text = "5"
         }
-        currentNumber = Double(labelNumber.text!)!
+        isLastNumberSymbol = true
     }
     
     @IBAction func Click6(_ sender: Any) {
@@ -89,7 +80,7 @@ class ViewController: UIViewController {
         } else {
             labelNumber.text = "6"
         }
-        currentNumber = Double(labelNumber.text!)!
+        isLastNumberSymbol = true
     }
     
     @IBAction func Click7(_ sender: Any) {
@@ -98,7 +89,7 @@ class ViewController: UIViewController {
         } else {
             labelNumber.text = "7"
         }
-        currentNumber = Double(labelNumber.text!)!
+        isLastNumberSymbol = true
     }
     
     @IBAction func Click8(_ sender: Any) {
@@ -107,7 +98,7 @@ class ViewController: UIViewController {
         } else {
             labelNumber.text = "8"
         }
-        currentNumber = Double(labelNumber.text!)!
+        isLastNumberSymbol = true
     }
     
     @IBAction func Click9(_ sender: Any) {
@@ -116,110 +107,84 @@ class ViewController: UIViewController {
         } else {
             labelNumber.text = "9"
         }
-        currentNumber = Double(labelNumber.text!)!
+        isLastNumberSymbol = true
     }
     
     @IBAction func ClickDot(_ sender: Any) {
-        if !isNumberDouble(currentNumber) && labelNumber.text?.last != "." {
+        if isLastNumberSymbol {
             labelNumber.text! += "."
-            currentNumber = Double(labelNumber.text!)!
         }
     }
     
     @IBAction func ClickPlus(_ sender: Any) {
-        if currentOperation == "n"
-        {
-            labelNumber.text = "0"
-            tempNumber = currentNumber
-            currentOperation = "+"
-        } else {
-            toDoOperation()
-            labelNumber.text = "0"
-            tempNumber = currentNumber
-            currentOperation = "+"
+        if isLastNumberSymbol {
+            labelNumber.text! += "+"
+            isLastNumberSymbol = false
+            isNumberDisplayed = false
         }
     }
     
     @IBAction func ClickMinus(_ sender: Any) {
-        if currentOperation == "n" {
-            labelNumber.text = "0"
-            tempNumber = currentNumber
-            currentOperation = "-"
-        } else {
-            toDoOperation()
-            labelNumber.text = "0"
-            tempNumber = currentNumber
-            currentOperation = "-"
+        if isLastNumberSymbol {
+            labelNumber.text! += "-"
+            isLastNumberSymbol = false
+            isNumberDisplayed = false
         }
     }
     
     @IBAction func ClickMultiplication(_ sender: Any) {
-        if currentOperation == "n" {
-            labelNumber.text = "0"
-            tempNumber = currentNumber
-            currentOperation = "*"
-        } else {
-            toDoOperation()
-            labelNumber.text = "0"
-            tempNumber = currentNumber
-            currentOperation = "*"
+        if isLastNumberSymbol {
+            labelNumber.text! += "*"
+            isLastNumberSymbol = false
+            isNumberDisplayed = false
         }
     }
     
     @IBAction func ClickDevision(_ sender: Any) {
-        if currentOperation == "n" {
-            labelNumber.text = "0"
-            tempNumber = currentNumber
-            currentOperation = "/"
-        } else {
-            toDoOperation()
-            labelNumber.text = "0"
-            tempNumber = currentNumber
-            currentOperation = "/"
+        if isLastNumberSymbol {
+            labelNumber.text! += "/"
+            isLastNumberSymbol = false
+            isNumberDisplayed = false
         }
     }
     
     @IBAction func ClickPercent(_ sender: Any) {
-        currentNumber /= 100
-        updateLabel()
+        if isNumberDisplayed {
+            var temp = Double(labelNumber.text!)
+            temp = temp!/100
+            labelNumber.text = String(temp!)
+        }
     }
     
     @IBAction func ClickSign(_ sender: Any) {
-        if currentNumber != 0 {
-            currentNumber *= -1
-        }
-        updateLabel()
-    }
-    
-    func toDoOperation() {
-        switch currentOperation {
-        case "+":
-            currentNumber += tempNumber
-            tempNumber = 0
-            updateLabel()
-            currentOperation = "n"
-        case "-":
-            currentNumber = tempNumber - currentNumber
-            tempNumber = 0
-            updateLabel()
-            currentOperation = "n"
-        case "*":
-            currentNumber *= tempNumber
-            tempNumber = 0
-            updateLabel()
-            currentOperation = "n"
-        case "/":
-            currentNumber = tempNumber / currentNumber
-            tempNumber = 0
-            updateLabel()
-            currentOperation = "n"
-        default:
-            break
+        if isNumberDisplayed {
+            var temp = Double(labelNumber.text!)
+            temp = -1 * temp!
+            if isNumberDouble(temp!) {
+                labelNumber.text = String(temp!)
+            } else {
+                var temp2 = String(temp!)
+                temp2.remove(at: temp2.index(before: temp2.endIndex))
+                temp2.remove(at: temp2.index(before: temp2.endIndex))
+                labelNumber.text = String(temp2)
+            }
         }
     }
     
     @IBAction func ClickEqual(_ sender: Any) {
-        toDoOperation()
+        let expression = NSExpression(format: labelNumber.text!)
+        if let result = expression.expressionValue(with: nil, context: nil) as? Double {
+            if isNumberDouble(result) {
+                labelNumber.text = String(result)
+            } else {
+                var temp = String(result)
+                temp.remove(at: temp.index(before: temp.endIndex))
+                temp.remove(at: temp.index(before: temp.endIndex))
+                labelNumber.text = String(temp)
+            }
+        }
+        isNumberDisplayed = true
+        isLastNumberSymbol = true
     }
 }
 
