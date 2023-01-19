@@ -268,6 +268,9 @@
                                                             <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
                                                             <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="commaClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d00-tF-CPV"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6A-jl-HMx">
                                                         <rect key="frame" x="86.666666666666657" y="0.0" width="85.666666666666657" height="116.33333333333333"/>

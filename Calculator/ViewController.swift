@@ -69,6 +69,16 @@ class ViewController: UIViewController {
         currentOperation = nil
         savedValue = 0
     }
+    
+    @IBAction func commaClick(_ sender: UIButton) {
+        if currentNumberLabel.text?.last != "." {
+            if currentNumberLabel.text != "" {
+                currentNumberLabel.text = currentNumberLabel.text! + "."
+            } else {
+                currentNumberLabel.text = currentNumberLabel.text! + "0."
+            }
+        }
+    }
 }
 
 enum Operation {
