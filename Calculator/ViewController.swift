@@ -50,6 +50,25 @@ class ViewController: UIViewController {
         
         currentOperation = nil
     }
+    
+    @IBAction func signClick(_ sender: UIButton) {
+        var currentValue = Double(currentNumberLabel.text!)!
+        currentValue = -currentValue
+        currentNumberLabel.text = String(currentValue)
+    }
+    
+    
+    @IBAction func percentClick(_ sender: Any) {
+        var currentValue = Double(currentNumberLabel.text!)!
+        currentValue /= 100
+        currentNumberLabel.text = String(currentValue)
+    }
+    
+    @IBAction func clearClick(_ sender: Any) {
+        currentNumberLabel.text = ""
+        currentOperation = nil
+        savedValue = 0
+    }
 }
 
 enum Operation {

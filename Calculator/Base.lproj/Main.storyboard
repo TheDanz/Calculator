@@ -41,6 +41,9 @@
                                                     <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
                                                     <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="clearClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2LK-dk-R7w"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7l-jF-Pta">
                                                 <rect key="frame" x="86.666666666666686" y="0.0" width="86" height="116.33333333333333"/>
@@ -50,6 +53,9 @@
                                                     <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
                                                     <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="signClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7sK-Tc-C0v"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgk-oX-70K">
                                                 <rect key="frame" x="173.66666666666666" y="0.0" width="85.666666666666657" height="116.33333333333333"/>
@@ -59,6 +65,9 @@
                                                     <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
                                                     <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="percentClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oCW-td-dEq"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ID6-iW-9tG">
                                                 <rect key="frame" x="260.33333333333331" y="0.0" width="85.666666666666686" height="116.33333333333333"/>
