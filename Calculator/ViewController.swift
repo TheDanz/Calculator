@@ -11,7 +11,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func numberClick(_ sender: UIButton) {
-        currentNumberLabel.text = currentNumberLabel.text! + String(sender.tag)
+        let number = sender.tag
+        currentNumberLabel.text = currentNumberLabel.text! + String(number)
     }
     
     @IBAction func operationClick(_ sender: UIButton) {
