@@ -1,7 +1,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var currentNumberLabel: UILabel!
+    @IBOutlet weak var currentValueLabel: UILabel!
     
     var savedValue: Double = 0
     var currentOperation: Operation?
@@ -12,14 +12,14 @@ class ViewController: UIViewController {
     
     @IBAction func numberClick(_ sender: UIButton) {
         let number = sender.tag
-        currentNumberLabel.text = currentNumberLabel.text! + String(number)
+        currentValueLabel.text = currentValueLabel.text! + String(number)
     }
     
     @IBAction func operationClick(_ sender: UIButton) {
-        guard let unwrapSavedValue = Double(currentNumberLabel.text!) else { return }
+        guard let unwrapSavedValue = Double(currentValueLabel.text!) else { return }
         
         savedValue = unwrapSavedValue
-        currentNumberLabel.text = ""
+        currentValueLabel.text = ""
         
         switch sender.tag {
         case 13:
@@ -36,17 +36,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func EqualClick(_ sender: UIButton) {
-        guard let currentValue = Double(currentNumberLabel.text!) else { return }
+        guard let currentValue = Double(currentValueLabel.text!) else { return }
         
         switch currentOperation {
         case .addition:
-            currentNumberLabel.text = String(savedValue + currentValue)
+            currentValueLabel.text = String(savedValue + currentValue)
         case .subtraction:
-            currentNumberLabel.text = String(savedValue - currentValue)
+            currentValueLabel.text = String(savedValue - currentValue)
         case .multiplication:
-            currentNumberLabel.text = String(savedValue * currentValue)
+            currentValueLabel.text = String(savedValue * currentValue)
         case .division:
-            currentNumberLabel.text = String(savedValue / currentValue)
+            currentValueLabel.text = String(savedValue / currentValue)
         case .none:
             break
         }
@@ -55,32 +55,32 @@ class ViewController: UIViewController {
     }
     
     @IBAction func signClick(_ sender: UIButton) {
-        guard let unwrapCurrentValue = Double(currentNumberLabel.text!) else { return }
+        guard let unwrapCurrentValue = Double(currentValueLabel.text!) else { return }
         var currentValue = unwrapCurrentValue
         currentValue = -currentValue
-        currentNumberLabel.text = String(currentValue)
+        currentValueLabel.text = String(currentValue)
     }
     
     
     @IBAction func percentClick(_ sender: Any) {
-        guard let unwrapCurrentValue = Double(currentNumberLabel.text!) else { return }
+        guard let unwrapCurrentValue = Double(currentValueLabel.text!) else { return }
         var currentValue = unwrapCurrentValue
         currentValue /= 100
-        currentNumberLabel.text = String(currentValue)
+        currentValueLabel.text = String(currentValue)
     }
     
     @IBAction func clearClick(_ sender: Any) {
-        currentNumberLabel.text = ""
+        currentValueLabel.text = ""
         currentOperation = nil
         savedValue = 0
     }
     
     @IBAction func commaClick(_ sender: UIButton) {
-        if currentNumberLabel.text?.last != "." {
-            if currentNumberLabel.text != "" {
-                currentNumberLabel.text = currentNumberLabel.text! + "."
+        if currentValueLabel.text?.last != "." {
+            if currentValueLabel.text != "" {
+                currentValueLabel.text = currentValueLabel.text! + "."
             } else {
-                currentNumberLabel.text = currentNumberLabel.text! + "0."
+                currentValueLabel.text = currentValueLabel.text! + "0."
             }
         }
     }
