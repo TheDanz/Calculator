@@ -15,7 +15,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func operationClick(_ sender: UIButton) {
-        savedValue = Double(currentNumberLabel.text!)!
+        guard let unwrapSavedValue = Double(currentNumberLabel.text!) else { return }
+        
+        savedValue = unwrapSavedValue
         currentNumberLabel.text = ""
         
         switch sender.tag {
@@ -33,7 +35,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func EqualClick(_ sender: UIButton) {
-        let currentValue = Double(currentNumberLabel.text!)!
+        guard let currentValue = Double(currentNumberLabel.text!) else { return }
         
         switch currentOperation {
         case .addition:
@@ -52,14 +54,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func signClick(_ sender: UIButton) {
-        var currentValue = Double(currentNumberLabel.text!)!
+        guard let unwrapCurrentValue = Double(currentNumberLabel.text!) else { return }
+        var currentValue = unwrapCurrentValue
         currentValue = -currentValue
         currentNumberLabel.text = String(currentValue)
     }
     
     
     @IBAction func percentClick(_ sender: Any) {
-        var currentValue = Double(currentNumberLabel.text!)!
+        guard let unwrapCurrentValue = Double(currentNumberLabel.text!) else { return }
+        var currentValue = unwrapCurrentValue
         currentValue /= 100
         currentNumberLabel.text = String(currentValue)
     }
