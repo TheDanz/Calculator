@@ -3,7 +3,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var currentValueLabel: UILabel!
     
-    var savedValue: Double = 0
+    var savedValue: Double?
     var currentOperation: Operation?
     
     override func viewDidLoad() {
@@ -37,6 +37,7 @@ class ViewController: UIViewController {
     
     @IBAction func EqualClick(_ sender: UIButton) {
         guard let currentValue = Double(currentValueLabel.text!) else { return }
+        guard let savedValue = self.savedValue else { return }
         
         switch currentOperation {
         case .addition:
@@ -72,7 +73,7 @@ class ViewController: UIViewController {
     @IBAction func clearClick(_ sender: Any) {
         currentValueLabel.text = ""
         currentOperation = nil
-        savedValue = 0
+        savedValue = nil
     }
     
     @IBAction func commaClick(_ sender: UIButton) {
