@@ -1,24 +1,319 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="T6n-nE-drm">
+                                <rect key="frame" x="24" y="28" width="553" height="545"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="S7M-Fl-1PE">
+                                        <rect key="frame" x="0.0" y="0.0" width="553" height="90"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAl-FT-pJN">
+                                                <rect key="frame" x="0.0" y="0.0" width="553" height="90"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
+                                                <color key="textColor" systemColor="systemPurpleColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="vju-NX-6s6">
+                                        <rect key="frame" x="0.0" y="91" width="553" height="90"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUs-9F-a2B">
+                                                <rect key="frame" x="0.0" y="0.0" width="137.66666666666666" height="90"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="AC" cornerStyle="large">
+                                                    <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                                    <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="clearClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2LK-dk-R7w"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7l-jF-Pta">
+                                                <rect key="frame" x="138.66666666666663" y="0.0" width="137.33333333333337" height="90"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="+/-" cornerStyle="large">
+                                                    <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                                    <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="signClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7sK-Tc-C0v"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgk-oX-70K">
+                                                <rect key="frame" x="277" y="0.0" width="137.66666666666663" height="90"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="%" cornerStyle="large">
+                                                    <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                                    <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="percentClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oCW-td-dEq"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ID6-iW-9tG">
+                                                <rect key="frame" x="415.66666666666669" y="0.0" width="137.33333333333331" height="90"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="/" cornerStyle="large">
+                                                    <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                                    <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="operationClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vTu-Ie-QAM"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="tpm-wc-WcT">
+                                        <rect key="frame" x="0.0" y="182" width="553" height="90"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XrK-Y9-TfC">
+                                                <rect key="frame" x="0.0" y="0.0" width="137.66666666666666" height="90"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="7" cornerStyle="large">
+                                                    <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                                    <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="numberClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0ke-FV-SeN"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bwl-tM-QeC">
+                                                <rect key="frame" x="138.66666666666663" y="0.0" width="137.33333333333337" height="90"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="8" cornerStyle="large">
+                                                    <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                                    <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="numberClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fcA-gB-n9A"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TcY-RR-jY9">
+                                                <rect key="frame" x="277" y="0.0" width="137.66666666666663" height="90"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="9" cornerStyle="large">
+                                                    <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                                    <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="numberClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xbs-3V-N9A"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13p-HC-mdT">
+                                                <rect key="frame" x="415.66666666666669" y="0.0" width="137.33333333333331" height="90"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="x" cornerStyle="large">
+                                                    <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                                    <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="operationClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rVa-Nb-Fwm"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="9vO-N4-bgT">
+                                        <rect key="frame" x="0.0" y="273" width="553" height="90"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ah-CM-LzZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="137.66666666666666" height="90"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="4" cornerStyle="large">
+                                                    <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                                    <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="numberClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4xa-7z-0bj"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgp-43-rVm">
+                                                <rect key="frame" x="138.66666666666663" y="0.0" width="137.33333333333337" height="90"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="5" cornerStyle="large">
+                                                    <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                                    <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="numberClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2ff-sk-jrl"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EuU-kN-jmf">
+                                                <rect key="frame" x="277" y="0.0" width="137.66666666666663" height="90"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="6" cornerStyle="large">
+                                                    <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                                    <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="numberClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nnu-9L-OI1"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVi-s2-6ye">
+                                                <rect key="frame" x="415.66666666666669" y="0.0" width="137.33333333333331" height="90"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="-" cornerStyle="large">
+                                                    <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                                    <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="operationClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Xp-pL-B4Z"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="gxi-2Z-rKe">
+                                        <rect key="frame" x="0.0" y="364" width="553" height="90"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jf-OC-yhO">
+                                                <rect key="frame" x="0.0" y="0.0" width="137.66666666666666" height="90"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="1" cornerStyle="large">
+                                                    <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                                    <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="numberClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PJ1-5s-mRF"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lv-Er-Jur">
+                                                <rect key="frame" x="138.66666666666663" y="0.0" width="137.33333333333337" height="90"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="2" cornerStyle="large">
+                                                    <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                                    <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="numberClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Cn-VN-TS6"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nU5-Ey-19X">
+                                                <rect key="frame" x="277" y="0.0" width="137.66666666666663" height="90"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="3" cornerStyle="large">
+                                                    <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                                    <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="numberClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jBV-46-fcN"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTj-S1-SL0">
+                                                <rect key="frame" x="415.66666666666669" y="0.0" width="137.33333333333331" height="90"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="+" cornerStyle="large">
+                                                    <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                                    <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="operationClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gzk-Lk-WeF"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="oid-1D-ZVV">
+                                        <rect key="frame" x="0.0" y="455" width="553" height="90"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxl-ha-W1J">
+                                                <rect key="frame" x="0.0" y="0.0" width="276" height="90"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="0" cornerStyle="large">
+                                                    <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                                    <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="numberClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vif-BA-vYn"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Pj6-SK-p38">
+                                                <rect key="frame" x="277" y="0.0" width="276" height="90"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="18" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbs-7L-2L7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="137.66666666666666" height="90"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="," cornerStyle="large">
+                                                            <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                                            <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
+                                                            <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="commaClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d00-tF-CPV"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6A-jl-HMx">
+                                                        <rect key="frame" x="138.66666666666669" y="0.0" width="137.33333333333331" height="90"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="=" cornerStyle="large">
+                                                            <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                                            <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
+                                                            <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="EqualClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ix6-97-6hs"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="T6n-nE-drm" secondAttribute="trailing" constant="23" id="Arg-WS-2kz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="T6n-nE-drm" secondAttribute="bottom" constant="27" id="gWe-ev-pss"/>
+                            <constraint firstItem="T6n-nE-drm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="ho3-NU-uvP"/>
+                            <constraint firstItem="T6n-nE-drm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="28" id="wyk-Oa-TCw"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentValueLabel" destination="fAl-FT-pJN" id="dSk-PE-mBX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="11.25" y="61.25"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
